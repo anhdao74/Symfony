@@ -1,18 +1,14 @@
 <?php
-
 namespace OC\PlatformBundle\Entity;
-
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 // N'oubliez pas ce use :
 use Gedmo\Mapping\Annotation as Gedmo;
-
 /**
  * @ORM\Table(name="oc_advert")
  * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\AdvertRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-
 class Advert
 {
   /**
@@ -52,7 +48,7 @@ class Advert
    */
   private $published = true;
   /**
-   * @ORM\OneToOne(targetEntity="OC\PlatformBundle\Entity\Image", cascade={"persist"})
+   * @ORM\OneToOne(targetEntity="OC\PlatformBundle\Entity\Image", cascade={"persist", "remove"})
    */
   private $image;
   /**
