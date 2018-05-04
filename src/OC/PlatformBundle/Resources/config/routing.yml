@@ -1,24 +1,24 @@
 # src/OC/PlatformBundle/Resources/config/routing.yml
 
 oc_platform_home:
-    path:    /{page}      
-    defaults:  
-        _controller: OCPlatformBundle:Advert:index 
-        page:    1
+    path:      /{page}
+    defaults:
+        _controller: OCPlatformBundle:Advert:index
+        page:        1
     requirements:
         page: \d*
     
 oc_platform_view:
     path:      /advert/{id}
-    defaults: 
-        _controller: OCPlatformBundle:Advert:view 
+    defaults:
+        _controller: OCPlatformBundle:Advert:view
     requirements:
         id: \d+
-    
+
 oc_platform_add:
     path:      /add
-    defaults:  
-        _controller: OCPlatformBundle:Advert:add 
+    defaults:
+        _controller: OCPlatformBundle:Advert:add
 
 oc_platform_edit:
     path:      /edit/{id}
@@ -34,13 +34,9 @@ oc_platform_delete:
     requirements:
         id: \d+
 
-# src/OC/PlatformBundle/Resources/config/routing.yml
-
-oc_platform_view_slug:
-    path:      /{year}/{slug}.{format}
+oc_platform_purge:
+    path:     /purge/{days}
     defaults:
-        _controller: OCPlatformBundle:Advert:viewSlug
-        format:      html
+        _controller: OCPlatformBundle:Advert:purge
     requirements:
-        year:   \d{4}
-        format: html|xml
+        days: \d+

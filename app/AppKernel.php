@@ -15,8 +15,10 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             // Le générateur a généré la ligne suivante :
             new OC\PlatformBundle\OCPlatformBundle(),
+            
         );
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
