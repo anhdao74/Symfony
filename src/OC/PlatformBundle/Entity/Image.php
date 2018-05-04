@@ -1,13 +1,10 @@
 <?php
 // src/OC/PlatformBundle/Entity/Image
-
 namespace OC\PlatformBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * @ORM\Table(name="oc_image")
- * @ORM\Entity(repositoryClass="OC\PlatformBundle\Entity\ImageRepository")
+ * @ORM\Entity
  */
 class Image
 {
@@ -17,72 +14,47 @@ class Image
    * @ORM\GeneratedValue(strategy="AUTO")
    */
   private $id;
-
   /**
    * @ORM\Column(name="url", type="string", length=255)
    */
   private $url;
-
   /**
    * @ORM\Column(name="alt", type="string", length=255)
    */
   private $alt;
-
-    /**
-     * Get id.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set url.
-     *
-     * @param string $url
-     *
-     * @return Image
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-
-    /**
-     * Get url.
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
-
-    /**
-     * Set alt.
-     *
-     * @param string $alt
-     *
-     * @return Image
-     */
-    public function setAlt($alt)
-    {
-        $this->alt = $alt;
-
-        return $this;
-    }
-
-    /**
-     * Get alt.
-     *
-     * @return string
-     */
-    public function getAlt()
-    {
-        return $this->alt;
-    }
+  /**
+   * @return int
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
+  /**
+   * @param string $url
+   */
+  public function setUrl($url)
+  {
+    $this->url = $url;
+  }
+  /**
+   * @return string
+   */
+  public function getUrl()
+  {
+    return $this->url;
+  }
+  /**
+   * @param string $alt
+   */
+  public function setAlt($alt)
+  {
+    $this->alt = $alt;
+  }
+  /**
+   * @return string
+   */
+  public function getAlt()
+  {
+    return $this->alt;
+  }
 }
