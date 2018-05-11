@@ -12,18 +12,18 @@
     },
     "require": {
         "php": ">=5.5.9",
-        "doctrine/doctrine-bundle": "^1.6",
+        "symfony/symfony": "3.4.*",
         "doctrine/orm": "^2.5",
-        "incenteev/composer-parameter-handler": "^2.0",
-        "doctrine/doctrine-fixtures-bundle": "~3.0.2",
+        "doctrine/doctrine-bundle": "^1.6",
+        "doctrine/doctrine-cache-bundle": "^1.2",
+        "symfony/swiftmailer-bundle": "^2.3.10",
+        "symfony/monolog-bundle": "^3.1.0",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
-        "symfony/monolog-bundle": "^3.1.0",
-        "symfony/polyfill-apcu": "^1.0",
-        "symfony/swiftmailer-bundle": "^2.3.10",
-        "symfony/symfony": "3.4.*",
+        "incenteev/composer-parameter-handler": "^2.0",
+        "doctrine/doctrine-fixtures-bundle": "~3.0.2",
         "stof/doctrine-extensions-bundle": "^1.2.2",
-        "twig/twig": "^1.0||^2.0"
+        "friendsofsymfony/user-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -31,7 +31,7 @@
         "symfony/web-server-bundle": "^4.0"
     },
     "scripts": {
-        "symfony-scripts": [
+        "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
@@ -39,16 +39,17 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
-        "post-install-cmd": [
-            "@symfony-scripts"
-        ],
+        
         "post-update-cmd": [
-            "@symfony-scripts"
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ]
     },
-    "config": {
-        "sort-packages": true
-    },
+  
     "extra": {
         "symfony-app-dir": "app",
         "symfony-bin-dir": "bin",
@@ -59,6 +60,8 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         },
-        "branch-alias": null
+        "branch-alias": {
+            "dev-master": "3.0-dev"
+        }
     }
 }

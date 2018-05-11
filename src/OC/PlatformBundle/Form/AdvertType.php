@@ -1,6 +1,8 @@
 <?php
 // src/OC/PlatformBundle/Form/AdvertType.php
+
 namespace OC\PlatformBundle\Form;
+
 use OC\PlatformBundle\Repository\CategoryRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -13,6 +15,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 class AdvertType extends AbstractType
 {
   public function buildForm(FormBuilderInterface $builder, array $options)
@@ -34,6 +37,7 @@ class AdvertType extends AbstractType
         }
       ))
       ->add('save',      SubmitType::class)
+      ->add('content', CkeditorType::class)
     ;
     // On ajoute une fonction qui va écouter un évènement
     $builder->addEventListener(
